@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menyusu</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <header>
+    <h1 class="floating">🍕 Pizza Dünyası</h1>
+    <p>Ən ləzzətli pizzalar burada!</p>
+</header>
+
+    <main>
+        <section id="menu-section" class="reveal">
+            <h2>Pizza Növləri</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Hamısı</button>
+                <button class="filter-btn" data-filter="classic">Klassik</button>
+                <button class="filter-btn" data-filter="special">Xüsusi</button>
+                <button class="filter-btn" data-filter="vegetarian">Vegetarian</button>
+                <button class="filter-btn" data-filter="spicy">Ədvalı</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+            </div>
+            <div id="pizza-menu" class="menu-grid"></div>
+        </section>
+
+        <section id="cart-section" class="reveal">
+            <h2>Səbətiniz</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total">
+                <p>Ümumi: <span id="total-price">0.00</span> AZN</p>
+                <button id="order-btn" disabled>Sifariş Et</button>
+            </div>
+        </section>
+
+        <!-- <section id="orders-section">
+            <h2>Aktiv Sifarişlər</h2>
+            <div id="active-orders"></div>
+        </section> -->
+
+        <!-- Admin Panel -->
+        <!-- <section id="admin-section" class="admin-panel">
+            <h2>İdarəetmə Paneli</h2>
+            <div class="admin-controls">
+                <button id="toggle-admin">Admin Paneli Aç/Bağla</button>
+                <div id="admin-panel-content" class="hidden">
+                    <h3>Sifariş İdarəetmə</h3>
+                    <div id="admin-orders"></div>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- Pizza Ətraflı Məlumat Modalı -->
+    <div id="pizza-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Sifariş Formu Modalı -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sifariş Məlumatları</h2>
+            <form id="order-form">
+                <div class="form-group">
+                    <label for="customer-name">Adınız:</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Telefon:</label>
+                    <input type="tel" id="customer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Ünvan:</label>
+                    <textarea id="customer-address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Ödəniş Metodu:</label>
+                    <select id="payment-method" required>
+                        <option value="">Seçin</option>
+                        <option value="card">Kartla ödəniş</option>
+                        <option value="cash">Qapıda nağd ödəniş</option>
+                        <option value="online">Onlayn ödəniş</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="order-notes">Əlavə Qeydlər:</label>
+                    <textarea id="order-notes"></textarea>
+                </div>
+                <button type="submit">Sifarişi Tamamla</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

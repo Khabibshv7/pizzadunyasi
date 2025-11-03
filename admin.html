@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Admin Paneli</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h2>🍕 Admin Girişi</h2>
+                    <p>Zəhmət olmasa admin kodunu daxil edin</p>
+                </div>
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="admin-code">Admin Kodu:</label>
+                        <input type="password" id="admin-code" placeholder="Admin kodunu daxil edin" required>
+                        <div class="error-message" id="login-error"></div>
+                    </div>
+                    <button type="submit" class="btn-primary login-btn">Daxil Ol</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Gizli) -->
+    <div id="admin-panel" class="admin-container hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>🍕 Pizza Admin</h2>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active" data-section="dashboard">Dashboard</a></li>
+                    <li><a href="#orders" class="nav-link" data-section="orders">Sifarişlər</a></li>
+                    <li><a href="#menu" class="nav-link" data-section="menu">Menyu İdarəetmə</a></li>
+                    <li><a href="#statistics" class="nav-link" data-section="statistics">Statistika</a></li>
+                    <li><a href="#" class="nav-link" id="logout-sidebar">Çıxış</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <h1 id="page-title">Dashboard</h1>
+                <div class="admin-info">
+                    <span class="admin-name">Admin</span>
+                    <button id="logout-btn" class="logout-btn">Çıxış</button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <h3>Bugünkü Sifarişlər</h3>
+                            <span class="stat-number" id="today-orders">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <h3>Bugünkü Gəlir</h3>
+                            <span class="stat-number" id="today-revenue">0.00 AZN</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-info">
+                            <h3>Gözləyən Sifarişlər</h3>
+                            <span class="stat-number" id="pending-orders">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <h3>Tamamlanan Sifarişlər</h3>
+                            <span class="stat-number" id="completed-orders">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-orders">
+                    <h2>Son Sifarişlər</h2>
+                    <div id="recent-orders-list" class="orders-list">
+                        <!-- Son sifarişlər burada göstəriləcək -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="section">
+                <div class="section-header">
+                    <h2>Sifariş İdarəetmə</h2>
+                    <div class="filter-controls">
+                        <select id="status-filter">
+                            <option value="all">Hamısı</option>
+                            <option value="pending">Gözləyən</option>
+                            <option value="confirmed">Təsdiqlənən</option>
+                            <option value="preparing">Hazırlanan</option>
+                            <option value="ready">Hazır</option>
+                            <option value="delivered">Çatdırılan</option>
+                        </select>
+                        <input type="date" id="date-filter">
+                        <button id="reset-filters" class="btn-secondary">Filteri Sıfırla</button>
+                    </div>
+                </div>
+                <div id="orders-list" class="orders-list">
+                    <!-- Sifarişlər burada göstəriləcək -->
+                </div>
+            </section>
+
+            <!-- Menu Management Section -->
+            <section id="menu" class="section">
+                <div class="section-header">
+                    <h2>Menyu İdarəetmə</h2>
+                    <button id="add-pizza-btn" class="btn-primary">Yeni Pizza Əlavə Et</button>
+                </div>
+                
+                <div class="menu-grid" id="admin-menu-grid">
+                    <!-- Pizza menyusu burada göstəriləcək -->
+                </div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section id="statistics" class="section">
+                <h2>Statistika</h2>
+                <div class="stats-container">
+                    <div class="chart-container">
+                        <h3>Günlük Gəlir</h3>
+                        <canvas id="revenue-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Ən Populer Pizzalar</h3>
+                        <canvas id="popular-pizzas-chart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Pizza Əlavə/Redaktə Modalı -->
+    <div id="pizza-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Yeni Pizza Əlavə Et</h2>
+            <form id="pizza-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pizza-name">Pizza Adı:</label>
+                        <input type="text" id="pizza-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pizza-price">Qiymət (AZN):</label>
+                        <input type="number" id="pizza-price" step="0.01" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pizza-category">Kateqoriya:</label>
+                        <select id="pizza-category" required>
+                            <option value="classic">Klassik</option>
+                            <option value="special">Xüsusi</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="spicy">Ədvalı</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pizza-image">Şəkil URL:</label>
+                        <input type="url" id="pizza-image" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pizza-description">Təsvir:</label>
+                    <textarea id="pizza-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pizza-ingredients">Tərkib (vergüllə ayırın):</label>
+                    <textarea id="pizza-ingredients" placeholder="Pomidor sousu, Mozzarella, Pepperoni..." required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" id="save-pizza-btn">Yadda Saxla</button>
+                    <button type="button" class="btn-secondary" id="cancel-pizza-btn">Ləğv Et</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sifariş Detal Modalı -->
+    <div id="order-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sifariş Detalları</h2>
+            <div id="order-detail-content">
+                <!-- Sifariş məlumatları burada göstəriləcək -->
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+{
+  "pizzas": [
+    {
+      "id": 1,
+      "name": "Margarita",
+      "category": "classic",
+      "price": 12,
+      "description": "Klassik italyan pizzası, təzə pomidor sousu, mozzarella pendiri və fesleğen ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Fesleğen"
+      ],
+      "image": "https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 2,
+      "name": "Pepperoni",
+      "category": "classic",
+      "price": 14.5,
+      "description": "Pepperoni kolbasası və ədviyyatlı pomidor sousu ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Pepperoni"
+      ],
+      "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 3,
+      "name": "Dörd Fəsil",
+      "category": "special",
+      "price": 18,
+      "description": "Dörd müxtəlif hissədən ibarət: pepperoni, göbələk, bibər və zeytun.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Pepperoni",
+        "Göbələk",
+        "Bibər",
+        "Zeytun"
+      ],
+      "image": "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 4,
+      "name": "Vegetarian",
+      "category": "vegetarian",
+      "price": 15,
+      "description": "Təzə tərəvəzlərlə hazırlanmış sağlam pizza.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Göbələk",
+        "Bibər",
+        "Soğan",
+        "Zeytun",
+        "Qarğıdalı"
+      ],
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 5,
+      "name": "Mexicano",
+      "category": "spicy",
+      "price": 16.5,
+      "description": "Acılı kolbasa, halapenyo bibəri və xüsusi acı sous ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Acılı kolbasa",
+        "Halapenyo",
+        "Acı sous"
+      ],
+      "image": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 7,
+      "name": "Hawaiian",
+      "category": "special",
+      "price": 15.5,
+      "description": "Ananas, donuz ətii və mozzarella pendiri ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Donuz ətii",
+        "Ananas"
+      ],
+      "image": "https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 8,
+      "name": "BBQ Toyuq",
+      "category": "special",
+      "price": 16,
+      "description": "BBQ sousu, toyuq əti, soğan və qırmızı bibər ilə.",
+      "ingredients": [
+        "BBQ sousu",
+        "Mozzarella",
+        "Toyuq əti",
+        "Soğan",
+        "Qırmızı bibər"
+      ],
+      "image": "https://images.unsplash.com/photo-1593246049226-ded77bf90326?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 9,
+      "name": "Supreme",
+      "category": "special",
+      "price": 19,
+      "description": "Pepperoni, göbələk, soğan, bibər, zeytun və ədviyyatlar ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Pepperoni",
+        "Göbələk",
+        "Soğan",
+        "Bibər",
+        "Zeytun"
+      ],
+      "image": "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 10,
+      "name": "Spinach & Feta",
+      "category": "vegetarian",
+      "price": 14.5,
+      "description": "Ispanak, feta pendiri, qırmızı soğan və sarımsaq ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Ispanak",
+        "Feta",
+        "Qırmızı soğan",
+        "Sarımsaq"
+      ],
+      "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 11,
+      "name": "Truffle Pizza",
+      "category": "premium",
+      "price": 24,
+      "description": "Trüfl yağı, qəhvəyi göbələk və parmezan ilə lüks pizza.",
+      "ingredients": [
+        "Trüfl yağı",
+        "Mozzarella",
+        "Göbələk",
+        "Parmezan",
+        "Rokfor pendiri"
+      ],
+      "image": "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 12,
+      "name": "Seafood Deluxe",
+      "category": "premium",
+      "price": 26.5,
+      "description": "Qaridəs, midyə, kalamar və xüsusi dəniz məhsulları sousu ilə.",
+      "ingredients": [
+        "Dəniz məhsulları sousu",
+        "Mozzarella",
+        "Qaridəs",
+        "Midyə",
+        "Kalamar",
+        "Limon"
+      ],
+      "image": "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 14,
+      "name": "Spicy Diavola",
+      "category": "spicy",
+      "price": 17,
+      "description": "Acı italyan kolbasası, qırmızı bibər və sarımsaq ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Diavola kolbasası",
+        "Qırmızı bibər",
+        "Sarımsaq"
+      ],
+      "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 16,
+      "name": "Meat Feast",
+      "category": "special",
+      "price": 20,
+      "description": "Pepperoni, donuz ətii, mal ətii və italyan kolbasası ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Pepperoni",
+        "Donuz ətii",
+        "Mal ətii",
+        "Kolbasa"
+      ],
+      "image": "https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 18,
+      "name": "Mushroom Paradise",
+      "category": "vegetarian",
+      "price": 16,
+      "description": "Müxtəlif növ göbələklər, sarımsaq və ədviyyatlar ilə.",
+      "ingredients": [
+        "Pomidor sousu",
+        "Mozzarella",
+        "Göbələk",
+        "Sarımsaq",
+        "Fesleğen"
+      ],
+      "image": "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&h=300&fit=crop"
+    },
+    {
+      "id": 19,
+      "name": "Buffalo Chicken",
+      "category": "spicy",
+      "price": 18.5,
+      "description": "Buffalo sousu, toyuq əti, seleri və penir ilə.",
+      "ingredients": [
+        "Buffalo sousu",
+        "Mozzarella",
+        "Toyuq əti",
+        "Seleri",
+        "Bleu pendiri"
+      ],
+      "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400&h=300&fit=crop"
+    }
+  ],
+  "orders": [],
+  "orderHistory": [
+    {
+      "id": "ORD425478",
+      "customerName": "Khabib",
+      "customerPhone": "+9940555555555",
+      "customerAddress": "Baki Sebail 118",
+      "paymentMethod": "cash",
+      "orderNotes": "Isti olsun\n",
+      "items": [
+        {
+          "id": 16,
+          "name": "Meat Feast",
+          "price": 20,
+          "quantity": 2
+        },
+        {
+          "id": 18,
+          "name": "Mushroom Paradise",
+          "price": 16,
+          "quantity": 2
+        },
+        {
+          "id": 19,
+          "name": "Buffalo Chicken",
+          "price": 18.5,
+          "quantity": 1
+        }
+      ],
+      "total": 90.5,
+      "status": "delivered",
+      "timestamp": "2025-11-03T11:47:05.479Z"
+    },
+    {
+      "id": "ORD585048",
+      "customerName": "Khabib",
+      "customerPhone": "+9940555555555",
+      "customerAddress": "wsdfv",
+      "paymentMethod": "card",
+      "orderNotes": "aserdtfghn",
+      "items": [
+        {
+          "id": 18,
+          "name": "Mushroom Paradise",
+          "price": 16,
+          "quantity": 1
+        }
+      ],
+      "total": 16,
+      "status": "delivered",
+      "timestamp": "2025-11-03T11:49:45.049Z"
+    },
+    {
+      "id": "ORD585048",
+      "customerName": "Khabib",
+      "customerPhone": "+9940555555555",
+      "customerAddress": "wsdfv",
+      "paymentMethod": "card",
+      "orderNotes": "aserdtfghn",
+      "items": [
+        {
+          "id": 18,
+          "name": "Mushroom Paradise",
+          "price": 16,
+          "quantity": 1
+        }
+      ],
+      "total": 16,
+      "status": "delivered",
+      "timestamp": "2025-11-03T11:49:45.049Z"
+    },
+    {
+      "id": "ORD748945",
+      "customerName": "Khabib",
+      "customerPhone": "+9940555555555",
+      "customerAddress": "wesrdtfghjm",
+      "paymentMethod": "cash",
+      "orderNotes": "wertyghjm",
+      "items": [
+        {
+          "id": 14,
+          "name": "Spicy Diavola",
+          "price": 17,
+          "quantity": 1
+        }
+      ],
+      "total": 17,
+      "status": "delivered",
+      "timestamp": "2025-11-03T11:52:28.945Z"
+    },
+    {
+      "id": "ORD012646",
+      "customerName": "",
+      "customerPhone": "",
+      "customerAddress": "",
+      "paymentMethod": "",
+      "orderNotes": "",
+      "items": [],
+      "total": 0,
+      "status": "delivered",
+      "timestamp": "2025-11-03T17:30:12.646Z"
+    },
+    {
+      "id": "ORD109495",
+      "customerName": "Khabib",
+      "customerPhone": "+994502344455",
+      "customerAddress": "df",
+      "paymentMethod": "cash",
+      "orderNotes": "dfghjukio",
+      "items": [
+        {
+          "id": 19,
+          "name": "Buffalo Chicken",
+          "price": 18.5,
+          "quantity": 6
+        }
+      ],
+      "total": 111,
+      "status": "delivered",
+      "timestamp": "2025-11-03T17:31:49.496Z"
+    },
+    {
+      "id": "ORD154486",
+      "customerName": "Khabib",
+      "customerPhone": "+994502344455",
+      "customerAddress": "fghi",
+      "paymentMethod": "online",
+      "orderNotes": "cghjkl\n",
+      "items": [
+        {
+          "id": 18,
+          "name": "Mushroom Paradise",
+          "price": 16,
+          "quantity": 6
+        }
+      ],
+      "total": 96,
+      "status": "delivered",
+      "timestamp": "2025-11-03T17:32:34.486Z"
+    },
+    {
+      "id": "ORD366377",
+      "customerName": "Khabib",
+      "customerPhone": "+994502344455",
+      "customerAddress": "sertyui",
+      "paymentMethod": "cash",
+      "orderNotes": "fghjk",
+      "items": [
+        {
+          "id": 2,
+          "name": "Pepperoni",
+          "price": 14.5,
+          "quantity": 103
+        },
+        {
+          "id": 12,
+          "name": "Seafood Deluxe",
+          "price": 26.5,
+          "quantity": 30
+        }
+      ],
+      "total": 2288.5,
+      "status": "delivered",
+      "timestamp": "2025-11-03T17:36:06.378Z"
+    },
+    {
+      "id": "ORD366379",
+      "customerName": "",
+      "customerPhone": "",
+      "customerAddress": "",
+      "paymentMethod": "",
+      "orderNotes": "",
+      "items": [],
+      "total": 0,
+      "status": "delivered",
+      "timestamp": "2025-11-03T17:36:06.379Z"
+    }
+  ]
+}
